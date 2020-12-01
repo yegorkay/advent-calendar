@@ -30,3 +30,8 @@ console.assert(
   multiplyArrayIndices(twoSum(testInput), testInput) === 514579,
   "product of two sum example is 514579"
 );
+
+console.assert(
+  multiplyArrayIndices(threeSum(testInput), testInput) === 241861950,
+  "product of two sum example is 241861950"
+);
