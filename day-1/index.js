@@ -1,10 +1,13 @@
 const { addArrayIndices, multiplyArrayIndices } = require("./helpers");
 const { twoSum, threeSum } = require("./nSum");
 
-const parseTextInputAsNumbers = require("../parseTextInputAsNumbers");
+const parseTextInput = require("../parseTextInput");
 
 const testInput = [1721, 979, 366, 299, 675, 1456];
-const realInput = parseTextInputAsNumbers("day-1/input.txt");
+
+const realInput = parseTextInput("day-1/input.txt").map((textValue) =>
+  parseInt(textValue)
+);
 
 console.assert(
   addArrayIndices(twoSum(testInput), testInput) === 2020,
