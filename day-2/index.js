@@ -6,26 +6,29 @@ const testData = [
   { i: 2, j: 9, letter: "c", password: "ccccccccc" },
 ];
 
-const parse = () =>
-  parseTextInput("day-2/input.txt").map((line) => {
-    const {
-      groups,
-    } = /(?<i>\d+)-(?<j>\d+) (?<letter>\w): (?<password>\w+)/g.exec(line);
-    return {
-      ...groups,
-      i: parseInt(groups.i),
-      j: parseInt(groups.j),
-    };
-  });
+const realInput = parseTextInput("day-2/input.txt").map((line) => {
+  const {
+    groups,
+  } = /(?<i>\d+)-(?<j>\d+) (?<letter>\w): (?<password>\w+)/g.exec(line);
+  return {
+    ...groups,
+    i: parseInt(groups.i),
+    j: parseInt(groups.j),
+  };
+});
 
-const realInput = parse();
-
+/**
+ * @param {{ i: number, j: number, letter: string, password: string }[]} input
+ */
 const part1 = (input) =>
   input.reduce((valid, { i, j, letter, password }) => {
     const actual = password.split(letter).length - 1;
     return actual >= i && actual <= j ? valid + 1 : valid;
   }, 0);
 
+/**
+ * @param {{ i: number, j: number, letter: string, password: string }[]} input
+ */
 const part2 = (input) =>
   input.reduce(
     (valid, { i, j, letter, password }) =>
