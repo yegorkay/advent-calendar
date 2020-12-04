@@ -17,14 +17,9 @@ const validateEyeColor = (color) =>
  * @param {string} passportNumber
  */
 const validatePassportNumber = (passportNumber = "") => {
-  // console.log({ passportNumber });
   if (passportNumber.length !== 9) return false;
   return !!Number(passportNumber);
 };
-// const validatePassportNumber = (passportNumber) => {
-//   const regex = new RegExp(/^\d{9}$/);
-//   return regex.test(passportNumber);
-// };
 
 /**
  *
